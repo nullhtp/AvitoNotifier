@@ -1,0 +1,7 @@
+[
+  {
+    "Type": "Telegram",
+    "Value": "114959131",
+    "Template": "{title} - {about}\n{url}"
+  }
+]

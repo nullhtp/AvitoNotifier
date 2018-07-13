@@ -1,0 +1,15 @@
+{
+  "TelegramApi": "390981553:AAFlfwLFuMSihQuTBHLA6B1sJepgH2isoE0",
+  "Email": "",
+  "EmailSender": "Avito test",
+  "EmailPassword": "",
+  "EmailServer": "smtp.yandex.ru",
+  "EmailPort": 25,
+  "UpdateTime": 420000,
+  "DelayMax": 6000,
+  "DelayMin": 4000,
+  "ProxySettings": {
+    "Url": "117.244.15.243",
+    "Port": "3128"
+  }
+}

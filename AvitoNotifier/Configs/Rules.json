@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Avito",
+    "ItemSelector": "div.item",
+    "TitleSelector": "h3.title a",
+    "LinkSelector": "h3.title a",
+    "LinkPrefix": "avito.ru",
+    "AboutSelector": "div.about",
+    "DateSelector": "div.c-2"
+  },
+  {
+    "Name": "Ya39",
+    "ItemSelector": "div.specBox",
+    "TitleSelector": "a.preTit",
+    "LinkSelector": "a.preTit",
+    "LinkPrefix": "ya39.ru",
+    "AboutSelector": "div.preTxt",
+    "DateSelector": "div.date"
+  },
+  {
+    "Name": "Irr",
+    "ItemSelector": "div.listing__item",
+    "TitleSelector": "a.listing__itemTitle",
+    "LinkSelector": "a.listing__itemTitle",
+    "LinkPrefix": "",
+    "AboutSelector": "div.listing__itemPrice",
+    "DateSelector": "div.updateProduct"
+  },
+  {
+    "Name": "2Rent",
+    "ItemSelector": "div.test-result-row",
+    "TitleSelector": "a.c-font-16",
+    "LinkSelector": "a.c-font-16",
+    "LinkPrefix": "2rent.pro",
+    "AboutSelector": "div.offer-add-info-div",
+    "DateSelector": "span.hidden-md"
+  }
+]

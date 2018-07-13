@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using AvitoNotifier.Extensions;
 using AvitoNotifier.Interfaces;
 using AvitoNotifier.Preferences;
@@ -14,9 +15,26 @@ namespace AvitoNotifier
 
         private static TelegramBotClient _bot;
 
-        public TelegramService(string apiKey)
+        public TelegramService(string apiKey, ProxySettings proxySettings)
         {
-            _bot = new TelegramBotClient(apiKey);
+            try
+            {
+                var webProxy = new WebProxy(proxySettings.Url, proxySettings.Port);
+                if (!string.IsNullOrEmpty(proxySettings.UserName))
+                {
+                    webProxy.Credentials = new NetworkCredential
+                    {
+                        UserName = proxySettings.UserName,
+                        Password = proxySettings.Password
+                    };
+                }
+                _bot = new TelegramBotClient(apiKey, webProxy);
+            }
+            catch (Exception e)
+            {
+                _logger.Error($"Connection error: {e.Message}");
+                throw;
+            }
         }
 
         private async void SendMessage(string message, int id)

@@ -11,6 +11,7 @@
         public int UpdateTime = 7 * 60 * 1000;
         public int DelayMax = 6 * 1000;
         public int DelayMin = 4 * 1000;
+        public ProxySettings ProxySettings = null;
 
         public override string ToString()
         {

@@ -23,8 +23,11 @@ namespace AvitoNotifier.IoC
             var builder = new ContainerBuilder();
             builder.RegisterType<TelegramService>()
                 .As<ITelegramNotifier>()
-                .WithParameter(
-                    new NamedParameter("apiKey", ApplicationPref.TelegramApi)
+                .WithParameters(new[]
+                    {
+                        new NamedParameter("apiKey", ApplicationPref.TelegramApi),
+                        new NamedParameter("proxySettings", ApplicationPref.ProxySettings)
+                    }
                 )
                 .SingleInstance();
 
@@ -63,6 +66,7 @@ namespace AvitoNotifier.IoC
                 Logger.Error(e, "Application preferences cannot parse");
                 throw;
             }
+
             try
             {
                 HuntingUrls = PrefUtils<List<HuntingUrl>>.Get(ConstPaths.UrlListPath);
@@ -72,6 +76,7 @@ namespace AvitoNotifier.IoC
                 Logger.Error(e, "Hunting urls cannot parse");
                 throw;
             }
+
             try
             {
                 NotificationRecords = PrefUtils<List<NotificationRecord>>.Get(ConstPaths.NotificationPrefPath);
@@ -81,6 +86,7 @@ namespace AvitoNotifier.IoC
                 Logger.Error(e, "Notification records cannot parse");
                 throw;
             }
+
             try
             {
                 ParserRules = PrefUtils<List<Rule>>.Get(ConstPaths.RulesPath);
@@ -90,6 +96,7 @@ namespace AvitoNotifier.IoC
                 Logger.Error(e, "Rules cannot parse");
                 throw;
             }
+
             Logger.Info("\n---------Preferences Loaded---------\n" +
                         $"{ApplicationPref} \n\n" +
                         $"Parser Rules Loaded: {ParserRules.Count}\n" +

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Autofac;
 using AvitoNotifier.Interfaces;
 using AvitoNotifier.IoC;
 using AvitoNotifier.Preferences;
 using NLog;
-using NLog.Fluent;
 
 namespace AvitoNotifier
 {
@@ -39,14 +38,17 @@ namespace AvitoNotifier
                                 ConfigurationModule.ApplicationPref.DelayMax));
                         }
                     }
-                    Logger.Info("Succes");
+
+                    Logger.Info("Success");
                 }
                 catch (Exception e)
                 {
                     Logger.Error(e);
                 }
+
                 Thread.Sleep(ConfigurationModule.ApplicationPref.UpdateTime);
             }
+
             // ReSharper disable once FunctionNeverReturns
         }
 
